@@ -39,12 +39,6 @@ public class Order implements Serializable{
 	@OneToMany(mappedBy = "id.order")
 	private Set<OrderItem> items = new HashSet<>();
 	
-	/*
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
-	*/
-	
 	public Order() {
 	}
 
