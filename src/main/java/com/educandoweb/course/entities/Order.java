@@ -3,6 +3,7 @@ package com.educandoweb.course.entities;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -100,6 +101,18 @@ public class Order implements Serializable{
 
 	public void setPayment(Payment payment) {
 		this.payment = payment;
+	}
+	
+	public Double getTotal() {
+		Locale.setDefault(Locale.US);
+		double sum = 0.00;
+		
+		for(OrderItem x : items) {
+			
+			sum += x.getSubTotal();
+		}
+		
+		return sum;
 	}
 
 	@Override
